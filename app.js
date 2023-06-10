@@ -29,18 +29,18 @@ app.post("/", async (req, res) => {
         is_completed: false
     })
 
-    res.json(created)
+    res.status(201).json(created)
 })
 
 app.put("/:id", async (req, res) => {
     const id = req.params.id
     const body = req.body
 
-    if (!body.description)
-    return res.status(400).json({
-        error: true,
-        message:"Informe a descrição"
-    })
+    // if (!body.description)
+    // return res.status(400).json({
+    //     error: true,
+    //     message:"Informe a descrição"
+    // })
 
     await Todo.update({
         description: body.description,
